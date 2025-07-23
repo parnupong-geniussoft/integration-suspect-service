@@ -112,7 +112,7 @@ func (l *logger) OnErrorRetryHook(resp *resty.Response, errors error) {
 	headers := resp.Header()
 	headersJSON, err := json.Marshal(headers)
 	if err != nil {
-		return
+		fmt.Println("Error: ", err)
 	}
 
 	headersBytes := []byte(headersJSON)
@@ -138,6 +138,4 @@ func (l *logger) OnErrorRetryHook(resp *resty.Response, errors error) {
 		ReferenceId:    refId,
 	}
 	SaveLoggerDbAsync(data, l.Db)
-
-	return
 }
