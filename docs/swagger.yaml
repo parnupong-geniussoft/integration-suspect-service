@@ -1,0 +1,113 @@
+basePath: /v1
+definitions:
+  entities.IngSuspectRequest:
+    properties:
+      active_flag:
+        type: string
+      birth_date:
+        type: string
+      citizen_id:
+        type: string
+      company_name:
+        type: string
+      data_date:
+        type: string
+      entityTP:
+        enum:
+        - PERSON
+        - ENTITY
+        type: string
+      first_name:
+        type: string
+      fraud_degree:
+        enum:
+        - B
+        - G
+        type: string
+      fraud_type_code:
+        type: string
+      juristic_id:
+        type: string
+      last_name:
+        type: string
+      passport_id:
+        type: string
+      record_date:
+        type: string
+      remark:
+        type: string
+      source:
+        type: string
+      source_des:
+        type: string
+      update_by:
+        type: string
+      update_date:
+        type: string
+    required:
+    - entityTP
+    - fraud_type_code
+    - source
+    - update_date
+    type: object
+  entities.SuspectControl:
+    properties:
+      availableResultsCount:
+        type: integer
+      pageEndIndex:
+        type: integer
+      pageStartIndex:
+        type: integer
+      requestId:
+        type: string
+      requesterLanguage:
+        type: string
+      requesterLocale:
+        type: string
+      requesterName:
+        type: string
+    type: object
+  entities.SuspectResponse:
+    properties:
+      control:
+        $ref: '#/definitions/entities.SuspectControl'
+      errors:
+        example: ""
+        type: string
+      status:
+        example: SUCCESS
+        type: string
+      statusDesc:
+        example: Successful
+        type: string
+    type: object
+host: localhost:5000
+info:
+  contact: {}
+  description: API สำหรับ OAuth Token
+  title: Integration Auth API
+  version: "1.0"
+paths:
+  /add_suspect:
+    post:
+      consumes:
+      - application/json
+      description: Add a suspect using the IngSuspectRequest
+      parameters:
+      - description: Suspect request object
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/entities.IngSuspectRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entities.SuspectResponse'
+      summary: Add a suspect
+      tags:
+      - Suspects
+swagger: "2.0"
