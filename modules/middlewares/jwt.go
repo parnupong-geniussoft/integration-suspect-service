@@ -7,7 +7,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-func NewJWTMiddleware(secret string) fiber.Handler {
+func JwtMiddleware(secret string) fiber.Handler {
 	return jwtware.New(jwtware.Config{
 		SigningKey: jwtware.SigningKey{
 			Key: []byte(secret),

@@ -9,6 +9,7 @@ import (
 type Configs struct {
 	App        Fiber
 	PostgreSQL PostgreSQL
+	Auth       Auth
 	Suspect    Suspect
 	Retry      Retry
 }
@@ -27,6 +28,11 @@ type PostgreSQL struct {
 	Password string
 	Database string
 	SSLMode  string
+}
+
+// Auth
+type Auth struct {
+	OauthJwtSecret string
 }
 
 // Suspect List
@@ -56,6 +62,9 @@ func LoadEnv() Configs {
 	cfg.PostgreSQL.Username = os.Getenv("DB_USERNAME")
 	cfg.PostgreSQL.Password = os.Getenv("DB_PASSWORD")
 	cfg.PostgreSQL.Database = os.Getenv("DB_DATABASE")
+
+	// Auth Configs
+	cfg.Auth.OauthJwtSecret = os.Getenv("OAUTH_JWT_SECRET")
 
 	// Suspect Configs
 	cfg.Suspect.KtbSuspectListHost = os.Getenv("KTB_SUSPECT_LIST_HOST")
