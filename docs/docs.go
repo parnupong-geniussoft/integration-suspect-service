@@ -176,11 +176,11 @@ const docTemplate = `{
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{
 	Version:          "1.0",
-	Host:             "localhost:5000",
-	BasePath:         "/v1",
+	Host:             "localhost:8081",
+	BasePath:         "",
 	Schemes:          []string{},
-	Title:            "Integration Auth API",
-	Description:      "API สำหรับ OAuth Token",
+	Title:            "Integration Suspect API",
+	Description:      "API สำหรับ Add Suspect List to KTB",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,
 	LeftDelim:        "{{",

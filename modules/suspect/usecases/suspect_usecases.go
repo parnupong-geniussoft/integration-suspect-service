@@ -29,8 +29,6 @@ func (u *suspectUsecase) SubmitKtbSuspect(spr *entities.IngSuspectRequest, xCorr
 		sourceDesc = spr.SourceDesc
 	}
 
-	fmt.Println("sourceDesc", sourceDesc)
-
 	ktbSubmitBody := &entities.KtbIndividualSubmitSuspectRequest{
 		Control: &entities.SuspectControl{
 			RequestID:             spr.UpdateBy + time.Now().Format("20060102150405"),

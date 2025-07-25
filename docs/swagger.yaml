@@ -1,4 +1,3 @@
-basePath: /v1
 definitions:
   entities.IngSuspectRequest:
     properties:
@@ -81,11 +80,11 @@ definitions:
         example: Successful
         type: string
     type: object
-host: localhost:5000
+host: localhost:8081
 info:
   contact: {}
-  description: API สำหรับ OAuth Token
-  title: Integration Auth API
+  description: API สำหรับ Add Suspect List to KTB
+  title: Integration Suspect API
   version: "1.0"
 paths:
   /add_suspect:

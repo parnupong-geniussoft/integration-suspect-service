@@ -1,8 +1,7 @@
-// @title Integration Auth API
+// @title Integration Suspect API
 // @version 1.0
-// @description API สำหรับ OAuth Token
-// @host localhost:5000
-// @BasePath /v1
+// @description API สำหรับ Add Suspect List to KTB
+// @host localhost:8081
 package main
 
 import (
@@ -32,8 +31,11 @@ func main() {
 }
 
 func loadConfig() configs.Configs {
+	// Load environment variables for Localhost development
+	// if err := godotenv.Load("../.env"); err != nil {
+
 	// Load dotenv config
-	if err := godotenv.Load("../.env"); err != nil {
+	if err := godotenv.Load(".env"); err != nil {
 		panic(err.Error())
 	}
 

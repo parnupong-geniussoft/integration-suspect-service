@@ -90,7 +90,13 @@ cd integration-suspect-service
 go mod tidy
 ```
 
-### 3. Run the Project
+### 3. Generate API documentation (Swagger)
+
+```bash
+swag init --generalInfo app/main.go 
+```
+
+### 4. Run the Project
 
 ```bash
 go run ./app/main.go
@@ -113,7 +119,7 @@ go run ./app/main.go
 ## 📚 API Documentation
 
 Swagger UI available at:  
-[http://localhost:8080/swagger/index.html](http://localhost:8080/swagger/index.html)
+[http://localhost:8081/swagger/index.html](http://localhost:8081/swagger/index.html)
 
 ## 🧹 Clean Architecture Overview
 

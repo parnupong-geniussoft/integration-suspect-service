@@ -17,7 +17,6 @@ func NewPostgreSqlDbConnection(cfg *configs.Configs) (*sqlx.DB, error) {
 
 	db, err := sqlx.Connect("pgx", postgresUrl)
 	if err != nil {
-		defer db.Close()
 		log.Printf("error, can't connect to database, %s", err.Error())
 		return nil, err
 	}
